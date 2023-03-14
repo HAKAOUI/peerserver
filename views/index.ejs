@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bienvenue</title>
+        <script src="/peerjs.js"></script>
+        <script src="/main.js"></script>
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> 
+    </head>
+    <body>
+
+        <div class="container">
+            <header class="header">
+                <h2 class="title">Bienvenu Chez Nous</h2>
+                <img src="/logo.png" alt="" />
+               <!-- <input type="text" id="filter" placeholder="Recherche" /> -->
+            </header>
+            <ul  id="login">
+                    <li class="input">
+                        <label for="peerId">Votre Nom :</label>
+                        <input type="text" name="peerId" id="peerId"  placeholder="Enter username..." />
+                        <button onclick="def()" type="submit">Connexion</button>
+                    </li>
+            </ul>
+    
+            <ul  id="user-list">
+                <% for(let i = 0; i < peers.length; i++) { %>
+                    <li class="user">
+                        <img src="/photo.png" alt="" />
+                        <div class="user-info">
+                            <h1 id="peer-input" ><%= peers[i] %></h1>
+                            <p>645</p>
+                        </div>
+                        <a onclick="startCall()" class="icon">
+                            <i class="fas fa-phone"></i>
+                        </a>
+    
+                    </li>
+                <% } %>    
+            </ul>
+
+            <div id="video-call-div">
+                <video autoplay id="remote-video"></video>
+                <video  autoplay muted id="local-video"></video>
+                <div class="call-action-div">
+                    <button onclick="muteVideo()">Mute Video</button>
+                    <button onclick="muteAudio()">Mute Audio</button>
+                    <button onclick="endCall()">Raccrocher</button>
+                </div>
+            </div>
+    
+        </div>
+        
+    </body>
+</html>
